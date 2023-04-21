@@ -10,8 +10,20 @@ const root = ReactDOM.createRoot(
 const render = (message: string, logNumber: number, messages: string[]) => {
   root.render(
     <React.StrictMode>
-      <LogWithState log={{ message, number: logNumber }} />
-      <LogWithoutState log={{ messages }} />
+      <LogWithState
+        log={{
+          message,
+          number: logNumber,
+          title:
+            "LogWithState - React 18, missing prop update renders in Safari",
+        }}
+      />
+      <LogWithoutState
+        log={{
+          messages,
+          title: "LogWithoutState - bug workaround for React 18 in Safari",
+        }}
+      />
     </React.StrictMode>
   );
 };

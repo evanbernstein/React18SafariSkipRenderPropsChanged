@@ -3,9 +3,10 @@ import React from "react";
 interface LogProp {
   message: string;
   number: number;
+  title: string;
 }
 export const LogWithState: React.FC<{ log: LogProp }> = ({ log }) => {
-  const { message, number } = log;
+  const { message, number, title } = log;
   const [prevMessages, setMessages] = React.useState<string[]>([]);
   const [prevNumber, setNumber] = React.useState(-1);
   const messages = [];
@@ -22,7 +23,7 @@ export const LogWithState: React.FC<{ log: LogProp }> = ({ log }) => {
   }
   return (
     <>
-      <h1>LogWithState</h1>
+      <h1>{title}</h1>
       <div>
         {prevMessages.map((message, i) => (
           <div key={i}>{message}</div>
