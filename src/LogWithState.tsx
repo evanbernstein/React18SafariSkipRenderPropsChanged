@@ -4,9 +4,10 @@ interface LogProp {
   message: string;
   number: number;
   title: string;
+  subtitle: string;
 }
 export const LogWithState: React.FC<{ log: LogProp }> = ({ log }) => {
-  const { message, number, title } = log;
+  const { message, number, title, subtitle } = log;
   const [prevMessages, setMessages] = React.useState<string[]>([]);
   const [prevNumber, setNumber] = React.useState(-1);
   const messages = [];
@@ -23,7 +24,8 @@ export const LogWithState: React.FC<{ log: LogProp }> = ({ log }) => {
   }
   return (
     <>
-      <h1>{title}</h1>
+      <h2>{title}</h2>
+      <h3>{subtitle}</h3>
       <div>
         {prevMessages.map((message, i) => (
           <div key={i}>{message}</div>
